@@ -275,12 +275,12 @@
       </a>
       <nav>
         <ul class="nav-menu">
-          <li><a href="index.html" class="nav-link" data-i18n="home">Home</a></li>
-          <li><a href="booking.html" class="nav-link active" data-i18n="booking">Booking</a></li>
-          <li><a href="chambres.html" class="nav-link" data-i18n="rooms">Chambres</a></li>
-          <li><a href="news.html" class="nav-link" data-i18n="news">News</a></li>
-          <li><a href="about.html" class="nav-link" data-i18n="about">About</a></li>
-          <li><a href="contact.html" class="nav-link" data-i18n="contact">Contact</a></li>
+          <li><a href="index.html" class="nav-link" data-i18n="nav_home">Home</a></li>
+          <li><a href="booking.html" class="nav-link active" data-i18n="nav_booking">Booking</a></li>
+          <li><a href="chambres.html" class="nav-link" data-i18n="nav_rooms">Chambres</a></li>
+          <li><a href="news.html" class="nav-link" data-i18n="nav_news">News</a></li>
+          <li><a href="about.html" class="nav-link" data-i18n="nav_about">About</a></li>
+          <li><a href="contact.html" class="nav-link" data-i18n="nav_contact">Contact</a></li>
         </ul>
       </nav>
       <div class="nav-actions">
@@ -290,7 +290,7 @@
           <button type="button" class="lang-btn" data-lang="en">EN</button>
         </div>
 
-        <a href="signin.html" class="btn-signin" data-i18n="signin">Sign In</a>
+        <a href="signin.html" class="btn-signin" data-i18n="btn_signin">Sign In</a>
         <button class="btn-mobile-toggle" aria-label="Menu Mobile">
           <i class="fa-solid fa-bars"></i>
         </button>
@@ -314,39 +314,38 @@
 
   <div class="page-banner">
     <div class="container">
-      <h1>Moteur de Réservation Royal</h1>
-      <p>Trouvez la suite idéale avec aperçus photographiques multiples, disponiblité en temps réel et garantie du meilleur prix.</p>
+      <h1 data-i18n="booking_banner_title">Moteur de Réservation Royal</h1>
+      <p data-i18n="booking_banner_desc">Trouvez la suite idéale avec aperçus photographiques multiples, disponiblité en temps réel et garantie du meilleur prix.</p>
     </div>
   </div>
 
   <div class="container booking-engine-wrap">
     <div class="booking-filter-card">
       <div class="filter-box">
-        <label><i class="fa-solid fa-map-pin"></i> Destination</label>
+        <label><i class="fa-solid fa-map-pin"></i> <span data-i18n="filter_destination">Destination</span></label>
         <select>
           <option selected>Yankers Royal Hotel, Kinshasa</option>
           <option>Yankers Royal Villa Spa</option>
         </select>
       </div>
       <div class="filter-box">
-        <label><i class="fa-solid fa-calendar-days"></i> Arrivée</label>
+        <label><i class="fa-solid fa-calendar-days"></i> <span data-i18n="filter_arrival">Arrivée</span></label>
         <input type="date" value="2026-10-15">
       </div>
       <div class="filter-box">
-        <label><i class="fa-solid fa-calendar-days"></i> Départ</label>
+        <label><i class="fa-solid fa-calendar-days"></i> <span data-i18n="filter_departure">Départ</span></label>
         <input type="date" value="2026-10-18">
       </div>
       <div class="filter-box">
-        <label><i class="fa-solid fa-user-group"></i> Voyageurs</label>
+        <label><i class="fa-solid fa-user-group"></i> <span data-i18n="filter_guests">Voyageurs</span></label>
         <select>
-          <option>1 Adulte, 0 Enfant</option>
-          <option selected>2 Adultes, 0 Enfant</option>
-          <option>2 Adultes, 1 Enfant</option>
-          <option>Famille (4+ pers)</option>
+          <option data-i18n="adult_1">1 Adulte</option>
+          <option data-i18n="adult_2" selected>2 Adultes</option>
+          <option data-i18n="adult_family">Famille (4+ pers)</option>
         </select>
       </div>
       <button class="btn-submit-filter">
-        <i class="fa-solid fa-magnifying-glass"></i> Rechercher
+        <i class="fa-solid fa-magnifying-glass"></i> <span data-i18n="filter_btn_search">Rechercher</span>
       </button>
     </div>
   </div>
@@ -372,8 +371,8 @@
               <h2 style="font-family: var(--font-serif); font-size: 1.5rem; color: var(--color-text-main);">Suite Royale Impériale &bull; Vue Mer</h2>
               <div style="display:flex; align-items:center; gap: 8px;">
                 <div>
-                  <div class="score-label">Exceptionnel</div>
-                  <div style="font-size: 0.75rem; color: var(--color-text-light);">210 avis</div>
+                  <div class="score-label" data-i18n="booking_rating_exceptional">Exceptionnel</div>
+                  <div style="font-size: 0.75rem; color: var(--color-text-light);">210 <span data-i18n="booking_reviews">avis</span></div>
                 </div>
                 <div class="booking-badge-rating">9.8</div>
               </div>
@@ -400,9 +399,9 @@
           <div>
             <span style="font-size: 0.8rem; color: var(--color-text-light);">3 nuits, 2 adultes</span>
             <div style="font-size: 1.7rem; font-weight: 800; color: var(--color-text-main); margin: 4px 0;">540 $</div>
-            <span style="font-size: 0.75rem; color: #2e7d32; font-weight: 600; display: block; margin-bottom: 10px;">Taxes et frais inclus</span>
+            <span style="font-size: 0.75rem; color: #2e7d32; font-weight: 600; display: block; margin-bottom: 10px;" data-i18n="booking_taxes_included">Taxes et frais inclus</span>
           </div>
-          <a href="contact.html?reserve=royale-imperiale" class="btn-signin" style="text-align: center;">Voir l'offre</a>
+          <a href="contact.html?reserve=royale-imperiale" class="btn-signin" style="text-align: center;" data-i18n="booking_btn_view">Voir l'offre</a>
         </div>
       </article>
 
@@ -424,8 +423,8 @@
               <h2 style="font-family: var(--font-serif); font-size: 1.5rem; color: var(--color-text-main);">Chambre Deluxe Prestige &bull; Vue Jardin</h2>
               <div style="display:flex; align-items:center; gap: 8px;">
                 <div>
-                  <div class="score-label">Superbe</div>
-                  <div style="font-size: 0.75rem; color: var(--color-text-light);">184 avis</div>
+                  <div class="score-label" data-i18n="booking_rating_superb">Superbe</div>
+                  <div style="font-size: 0.75rem; color: var(--color-text-light);">184 <span data-i18n="booking_reviews">avis</span></div>
                 </div>
                 <div class="booking-badge-rating">9.3</div>
               </div>
@@ -451,9 +450,9 @@
           <div>
             <span style="font-size: 0.8rem; color: var(--color-text-light);">3 nuits, 2 adultes</span>
             <div style="font-size: 1.7rem; font-weight: 800; color: var(--color-text-main); margin: 4px 0;">390 $</div>
-            <span style="font-size: 0.75rem; color: #2e7d32; font-weight: 600; display: block; margin-bottom: 10px;">Taxes et frais inclus</span>
+            <span style="font-size: 0.75rem; color: #2e7d32; font-weight: 600; display: block; margin-bottom: 10px;" data-i18n="booking_taxes_included">Taxes et frais inclus</span>
           </div>
-          <a href="contact.html?reserve=deluxe-prestige" class="btn-signin" style="text-align: center;">Voir l'offre</a>
+          <a href="contact.html?reserve=deluxe-prestige" class="btn-signin" style="text-align: center;" data-i18n="booking_btn_view">Voir l'offre</a>
         </div>
       </article>
 
@@ -475,8 +474,8 @@
               <h2 style="font-family: var(--font-serif); font-size: 1.5rem; color: var(--color-text-main);">Suite Exécutive Familiale &bull; 2 Chambres</h2>
               <div style="display:flex; align-items:center; gap: 8px;">
                 <div>
-                  <div class="score-label">Fabuleux</div>
-                  <div style="font-size: 0.75rem; color: var(--color-text-light);">142 avis</div>
+                  <div class="score-label" data-i18n="booking_rating_fabulous">Fabuleux</div>
+                  <div style="font-size: 0.75rem; color: var(--color-text-light);">142 <span data-i18n="booking_reviews">avis</span></div>
                 </div>
                 <div class="booking-badge-rating">9.5</div>
               </div>
@@ -502,9 +501,9 @@
           <div>
             <span style="font-size: 0.8rem; color: var(--color-text-light);">3 nuits, 4 personnes</span>
             <div style="font-size: 1.7rem; font-weight: 800; color: var(--color-text-main); margin: 4px 0;">720 $</div>
-            <span style="font-size: 0.75rem; color: #2e7d32; font-weight: 600; display: block; margin-bottom: 10px;">Taxes et frais inclus</span>
+            <span style="font-size: 0.75rem; color: #2e7d32; font-weight: 600; display: block; margin-bottom: 10px;" data-i18n="booking_taxes_included">Taxes et frais inclus</span>
           </div>
-          <a href="contact.html?reserve=executive-famille" class="btn-signin" style="text-align: center;">Voir l'offre</a>
+          <a href="contact.html?reserve=executive-famille" class="btn-signin" style="text-align: center;" data-i18n="booking_btn_view">Voir l'offre</a>
         </div>
       </article>
 
@@ -530,35 +529,35 @@
         <div class="footer-col">
           <h3 data-i18n="footer_nav">Navigation</h3>
           <ul class="footer-links">
-            <li><a href="index.html"><i class="fa-solid fa-chevron-right"></i> <span data-i18n="home">Accueil</span></a></li>
-            <li><a href="booking.html"><i class="fa-solid fa-chevron-right"></i> <span data-i18n="booking">Réservations</span></a></li>
-            <li><a href="chambres.html"><i class="fa-solid fa-chevron-right"></i> <span data-i18n="rooms">Chambres & Suites</span></a></li>
-            <li><a href="news.html"><i class="fa-solid fa-chevron-right"></i> <span data-i18n="news">Actualités</span></a></li>
-            <li><a href="about.html"><i class="fa-solid fa-chevron-right"></i> <span data-i18n="about">À Propos</span></a></li>
-            <li><a href="contact.html"><i class="fa-solid fa-chevron-right"></i> <span data-i18n="contact">Contact</span></a></li>
+            <li><a href="index.html"><i class="fa-solid fa-chevron-right"></i> <span data-i18n="footer_home">Accueil</span></a></li>
+            <li><a href="booking.html"><i class="fa-solid fa-chevron-right"></i> <span data-i18n="footer_booking">Réservations</span></a></li>
+            <li><a href="chambres.html"><i class="fa-solid fa-chevron-right"></i> <span data-i18n="footer_rooms">Chambres & Suites</span></a></li>
+            <li><a href="news.html"><i class="fa-solid fa-chevron-right"></i> <span data-i18n="footer_news">Actualités</span></a></li>
+            <li><a href="about.html"><i class="fa-solid fa-chevron-right"></i> <span data-i18n="footer_about">À Propos</span></a></li>
+            <li><a href="contact.html"><i class="fa-solid fa-chevron-right"></i> <span data-i18n="footer_contact">Contact</span></a></li>
           </ul>
         </div>
 
         <div class="footer-col">
           <h3 data-i18n="footer_services">Services & Booking</h3>
           <ul class="footer-links">
-            <li><a href="booking.html?filter=suite"><i class="fa-solid fa-chevron-right"></i> Réservation Express</a></li>
-            <li><a href="chambres.html#tarifs"><i class="fa-solid fa-chevron-right"></i> Tarifs & Formules</a></li>
-            <li><a href="booking.html?type=vols"><i class="fa-solid fa-chevron-right"></i> Navette Aéroport VIP</a></li>
-            <li><a href="about.html#spa"><i class="fa-solid fa-chevron-right"></i> Espace Bien-Être & Spa</a></li>
-            <li><a href="about.html#restaurant"><i class="fa-solid fa-chevron-right"></i> Restaurant Gastronomique</a></li>
-            <li><a href="contact.html#evenements"><i class="fa-solid fa-chevron-right"></i> Conférences & Mariages</a></li>
+            <li><a href="booking.html?filter=suite"><i class="fa-solid fa-chevron-right"></i> <span data-i18n="footer_express">Réservation Express</span></a></li>
+            <li><a href="chambres.html#tarifs"><i class="fa-solid fa-chevron-right"></i> <span data-i18n="footer_rates">Tarifs & Formules</span></a></li>
+            <li><a href="booking.html?type=vols"><i class="fa-solid fa-chevron-right"></i> <span data-i18n="footer_shuttle">Navette Aéroport VIP</span></a></li>
+            <li><a href="about.html#spa"><i class="fa-solid fa-chevron-right"></i> <span data-i18n="footer_spa">Espace Bien-Être & Spa</span></a></li>
+            <li><a href="about.html#restaurant"><i class="fa-solid fa-chevron-right"></i> <span data-i18n="footer_restaurant">Restaurant Gastronomique</span></a></li>
+            <li><a href="contact.html#evenements"><i class="fa-solid fa-chevron-right"></i> <span data-i18n="footer_events">Conférences & Mariages</span></a></li>
           </ul>
         </div>
 
         <div class="footer-col">
           <h3 data-i18n="footer_legal">Assistance & Légal</h3>
           <ul class="footer-links">
-            <li><a href="signin.html"><i class="fa-solid fa-chevron-right"></i> Espace Client / Sign In</a></li>
-            <li><a href="contact.html#faq"><i class="fa-solid fa-chevron-right"></i> Foire aux Questions (FAQ)</a></li>
-            <li><a href="contact.html#conditions"><i class="fa-solid fa-chevron-right"></i> Conditions Générales</a></li>
-            <li><a href="contact.html#politique"><i class="fa-solid fa-chevron-right"></i> Politique de Confidentialité</a></li>
-            <li><a href="contact.html#support"><i class="fa-solid fa-chevron-right"></i> Conciergerie Dédiée 24/7</a></li>
+            <li><a href="signin.html"><i class="fa-solid fa-chevron-right"></i> <span data-i18n="footer_client_space">Espace Client / Sign In</span></a></li>
+            <li><a href="contact.html#faq"><i class="fa-solid fa-chevron-right"></i> <span data-i18n="footer_faq">Foire aux Questions (FAQ)</span></a></li>
+            <li><a href="contact.html#conditions"><i class="fa-solid fa-chevron-right"></i> <span data-i18n="footer_terms">Conditions Générales</span></a></li>
+            <li><a href="contact.html#politique"><i class="fa-solid fa-chevron-right"></i> <span data-i18n="footer_privacy">Politique de Confidentialité</span></a></li>
+            <li><a href="contact.html#support"><i class="fa-solid fa-chevron-right"></i> <span data-i18n="footer_support">Conciergerie Dédiée 24/7</span></a></li>
           </ul>
         </div>
       </div>

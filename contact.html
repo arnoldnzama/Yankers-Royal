@@ -112,12 +112,12 @@
       </a>
       <nav>
         <ul class="nav-menu">
-          <li><a href="index.html" class="nav-link" data-i18n="home">Home</a></li>
-          <li><a href="booking.html" class="nav-link" data-i18n="booking">Booking</a></li>
-          <li><a href="chambres.html" class="nav-link" data-i18n="rooms">Chambres</a></li>
-          <li><a href="news.html" class="nav-link" data-i18n="news">News</a></li>
-          <li><a href="about.html" class="nav-link" data-i18n="about">About</a></li>
-          <li><a href="contact.html" class="nav-link active" data-i18n="contact">Contact</a></li>
+          <li><a href="index.html" class="nav-link" data-i18n="nav_home">Home</a></li>
+          <li><a href="booking.html" class="nav-link" data-i18n="nav_booking">Booking</a></li>
+          <li><a href="chambres.html" class="nav-link" data-i18n="nav_rooms">Chambres</a></li>
+          <li><a href="news.html" class="nav-link" data-i18n="nav_news">News</a></li>
+          <li><a href="about.html" class="nav-link" data-i18n="nav_about">About</a></li>
+          <li><a href="contact.html" class="nav-link active" data-i18n="nav_contact">Contact</a></li>
         </ul>
       </nav>
       <div class="nav-actions">
@@ -127,7 +127,7 @@
           <button type="button" class="lang-btn" data-lang="en">EN</button>
         </div>
 
-        <a href="signin.html" class="btn-signin" data-i18n="signin">Sign In</a>
+        <a href="signin.html" class="btn-signin" data-i18n="btn_signin">Sign In</a>
         <button class="btn-mobile-toggle" aria-label="Menu Mobile">
           <i class="fa-solid fa-bars"></i>
         </button>
@@ -137,9 +137,9 @@
 
   <section class="contact-hero">
     <div class="container">
-      <span class="section-subtitle">À Votre Écoute 24/7</span>
-      <h1 style="font-family: var(--font-serif); font-size: 2.8rem; margin-bottom: 12px;">Contactez Yankers Royal</h1>
-      <p style="color: var(--color-text-muted); max-width: 600px; margin: 0 auto;">
+      <span class="section-subtitle" data-i18n="contact_banner_sub">À Votre Écoute 24/7</span>
+      <h1 style="font-family: var(--font-serif); font-size: 2.8rem; margin-bottom: 12px;" data-i18n="contact_banner_title">Contactez Yankers Royal</h1>
+      <p style="color: var(--color-text-muted); max-width: 600px; margin: 0 auto;" data-i18n="contact_banner_desc">
         Nos équipes de conciergerie et de réception sont à votre entière disposition pour préparer votre arrivée.
       </p>
     </div>
@@ -149,12 +149,12 @@
     <div class="contact-layout">
       <!-- Info Left -->
       <div class="contact-info-card">
-        <h3 style="font-family: var(--font-serif); font-size: 1.5rem; margin-bottom: 24px;">Coordonnées Officielles</h3>
+        <h3 style="font-family: var(--font-serif); font-size: 1.5rem; margin-bottom: 24px;" data-i18n="contact_info_title">Coordonnées Officielles</h3>
         
         <div class="contact-channel">
           <div class="channel-icon"><i class="fa-solid fa-location-dot"></i></div>
           <div>
-            <h4 style="font-size: 1rem; font-weight: 700; margin-bottom: 4px;">Adresse</h4>
+            <h4 style="font-size: 1rem; font-weight: 700; margin-bottom: 4px;" data-i18n="contact_address_label">Adresse</h4>
             <p style="color: var(--color-text-muted); font-size: 0.9rem;">Boulevard Principal, Kinshasa, République Démocratique du Congo</p>
           </div>
         </div>
@@ -162,7 +162,7 @@
         <div class="contact-channel">
           <div class="channel-icon"><i class="fa-solid fa-phone"></i></div>
           <div>
-            <h4 style="font-size: 1rem; font-weight: 700; margin-bottom: 4px;">Téléphone direct</h4>
+            <h4 style="font-size: 1rem; font-weight: 700; margin-bottom: 4px;" data-i18n="contact_phone_label">Téléphone direct</h4>
             <p style="color: var(--color-text-muted); font-size: 0.9rem;">+243 81 000 0000 / +243 82 000 0000</p>
           </div>
         </div>
@@ -170,7 +170,7 @@
         <div class="contact-channel">
           <div class="channel-icon"><i class="fa-solid fa-envelope"></i></div>
           <div>
-            <h4 style="font-size: 1rem; font-weight: 700; margin-bottom: 4px;">Email Conciergerie</h4>
+            <h4 style="font-size: 1rem; font-weight: 700; margin-bottom: 4px;" data-i18n="contact_email_label">Email Conciergerie</h4>
             <p style="color: var(--color-text-muted); font-size: 0.9rem;">concierge@yankersroyalhotel.com</p>
           </div>
         </div>
@@ -178,25 +178,25 @@
         <div class="contact-channel">
           <div class="channel-icon"><i class="fa-solid fa-clock"></i></div>
           <div>
-            <h4 style="font-size: 1rem; font-weight: 700; margin-bottom: 4px;">Heures d'Ouverture</h4>
-            <p style="color: var(--color-text-muted); font-size: 0.9rem;">Réception & Check-in : 24h/24, 7j/7</p>
+            <h4 style="font-size: 1rem; font-weight: 700; margin-bottom: 4px;" data-i18n="contact_hours_label">Heures d'Ouverture</h4>
+            <p style="color: var(--color-text-muted); font-size: 0.9rem;" data-i18n="contact_hours_val">Réception & Check-in : 24h/24, 7j/7</p>
           </div>
         </div>
       </div>
 
       <!-- Form Right -->
       <form class="contact-form" onsubmit="event.preventDefault(); alert('Merci pour votre message ! Notre conciergerie vous répondra dans les plus brefs délais.');">
-        <h3 style="font-family: var(--font-serif); font-size: 1.5rem; margin-bottom: 24px;">Envoyer un Message</h3>
+        <h3 style="font-family: var(--font-serif); font-size: 1.5rem; margin-bottom: 24px;" data-i18n="contact_form_title">Envoyer un Message</h3>
         <div class="form-group">
-          <label>Nom Complet</label>
+          <label data-i18n="contact_name_label">Nom Complet</label>
           <input type="text" placeholder="Ex: Jean Dupont" required>
         </div>
         <div class="form-group">
-          <label>Adresse E-mail</label>
+          <label data-i18n="contact_email_field">Adresse E-mail</label>
           <input type="email" placeholder="Ex: jean.dupont@email.com" required>
         </div>
         <div class="form-group">
-          <label>Objet de votre demande</label>
+          <label data-i18n="contact_subject_label">Objet de votre demande</label>
           <select>
             <option>Réservation de chambre ou suite</option>
             <option>Événement, Mariage ou Séminaire</option>
@@ -205,10 +205,10 @@
           </select>
         </div>
         <div class="form-group">
-          <label>Votre Message</label>
+          <label data-i18n="contact_msg_label">Votre Message</label>
           <textarea rows="5" placeholder="Détaillez vos souhaits et dates..." required></textarea>
         </div>
-        <button type="submit" class="btn-send">Envoyer la demande</button>
+        <button type="submit" class="btn-send" data-i18n="contact_btn_send">Envoyer la demande</button>
       </form>
     </div>
   </main>
@@ -232,35 +232,35 @@
         <div class="footer-col">
           <h3 data-i18n="footer_nav">Navigation</h3>
           <ul class="footer-links">
-            <li><a href="index.html"><i class="fa-solid fa-chevron-right"></i> <span data-i18n="home">Accueil</span></a></li>
-            <li><a href="booking.html"><i class="fa-solid fa-chevron-right"></i> <span data-i18n="booking">Réservations</span></a></li>
-            <li><a href="chambres.html"><i class="fa-solid fa-chevron-right"></i> <span data-i18n="rooms">Chambres & Suites</span></a></li>
-            <li><a href="news.html"><i class="fa-solid fa-chevron-right"></i> <span data-i18n="news">Actualités</span></a></li>
-            <li><a href="about.html"><i class="fa-solid fa-chevron-right"></i> <span data-i18n="about">À Propos</span></a></li>
-            <li><a href="contact.html"><i class="fa-solid fa-chevron-right"></i> <span data-i18n="contact">Contact</span></a></li>
+            <li><a href="index.html"><i class="fa-solid fa-chevron-right"></i> <span data-i18n="footer_home">Accueil</span></a></li>
+            <li><a href="booking.html"><i class="fa-solid fa-chevron-right"></i> <span data-i18n="footer_booking">Réservations</span></a></li>
+            <li><a href="chambres.html"><i class="fa-solid fa-chevron-right"></i> <span data-i18n="footer_rooms">Chambres & Suites</span></a></li>
+            <li><a href="news.html"><i class="fa-solid fa-chevron-right"></i> <span data-i18n="footer_news">Actualités</span></a></li>
+            <li><a href="about.html"><i class="fa-solid fa-chevron-right"></i> <span data-i18n="footer_about">À Propos</span></a></li>
+            <li><a href="contact.html"><i class="fa-solid fa-chevron-right"></i> <span data-i18n="footer_contact">Contact</span></a></li>
           </ul>
         </div>
 
         <div class="footer-col">
           <h3 data-i18n="footer_services">Services & Booking</h3>
           <ul class="footer-links">
-            <li><a href="booking.html?filter=suite"><i class="fa-solid fa-chevron-right"></i> Réservation Express</a></li>
-            <li><a href="chambres.html#tarifs"><i class="fa-solid fa-chevron-right"></i> Tarifs & Formules</a></li>
-            <li><a href="booking.html?type=vols"><i class="fa-solid fa-chevron-right"></i> Navette Aéroport VIP</a></li>
-            <li><a href="about.html#spa"><i class="fa-solid fa-chevron-right"></i> Espace Bien-Être & Spa</a></li>
-            <li><a href="about.html#restaurant"><i class="fa-solid fa-chevron-right"></i> Restaurant Gastronomique</a></li>
-            <li><a href="contact.html#evenements"><i class="fa-solid fa-chevron-right"></i> Conférences & Mariages</a></li>
+            <li><a href="booking.html?filter=suite"><i class="fa-solid fa-chevron-right"></i> <span data-i18n="footer_express">Réservation Express</span></a></li>
+            <li><a href="chambres.html#tarifs"><i class="fa-solid fa-chevron-right"></i> <span data-i18n="footer_rates">Tarifs & Formules</span></a></li>
+            <li><a href="booking.html?type=vols"><i class="fa-solid fa-chevron-right"></i> <span data-i18n="footer_shuttle">Navette Aéroport VIP</span></a></li>
+            <li><a href="about.html#spa"><i class="fa-solid fa-chevron-right"></i> <span data-i18n="footer_spa">Espace Bien-Être & Spa</span></a></li>
+            <li><a href="about.html#restaurant"><i class="fa-solid fa-chevron-right"></i> <span data-i18n="footer_restaurant">Restaurant Gastronomique</span></a></li>
+            <li><a href="contact.html#evenements"><i class="fa-solid fa-chevron-right"></i> <span data-i18n="footer_events">Conférences & Mariages</span></a></li>
           </ul>
         </div>
 
         <div class="footer-col">
           <h3 data-i18n="footer_legal">Assistance & Légal</h3>
           <ul class="footer-links">
-            <li><a href="signin.html"><i class="fa-solid fa-chevron-right"></i> Espace Client / Sign In</a></li>
-            <li><a href="contact.html#faq"><i class="fa-solid fa-chevron-right"></i> Foire aux Questions (FAQ)</a></li>
-            <li><a href="contact.html#conditions"><i class="fa-solid fa-chevron-right"></i> Conditions Générales</a></li>
-            <li><a href="contact.html#politique"><i class="fa-solid fa-chevron-right"></i> Politique de Confidentialité</a></li>
-            <li><a href="contact.html#support"><i class="fa-solid fa-chevron-right"></i> Conciergerie Dédiée 24/7</a></li>
+            <li><a href="signin.html"><i class="fa-solid fa-chevron-right"></i> <span data-i18n="footer_client_space">Espace Client / Sign In</span></a></li>
+            <li><a href="contact.html#faq"><i class="fa-solid fa-chevron-right"></i> <span data-i18n="footer_faq">Foire aux Questions (FAQ)</span></a></li>
+            <li><a href="contact.html#conditions"><i class="fa-solid fa-chevron-right"></i> <span data-i18n="footer_terms">Conditions Générales</span></a></li>
+            <li><a href="contact.html#politique"><i class="fa-solid fa-chevron-right"></i> <span data-i18n="footer_privacy">Politique de Confidentialité</span></a></li>
+            <li><a href="contact.html#support"><i class="fa-solid fa-chevron-right"></i> <span data-i18n="footer_support">Conciergerie Dédiée 24/7</span></a></li>
           </ul>
         </div>
       </div>
