@@ -1,0 +1,580 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Réservations en Ligne - Yankers Royal Hotel</title>
+  <link rel="icon" type="image/x-icon" href="assets/ico/favicon.ico">
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="stylesheet" href="assets/css/style.css">
+  
+  <style>
+    .page-banner {
+      background: linear-gradient(135deg, #161616 0%, #2a2215 100%);
+      color: #FFFFFF;
+      padding: 120px 0 60px;
+      margin-top: 60px;
+      text-align: center;
+      position: relative;
+    }
+    .page-banner h1 {
+      font-family: var(--font-serif);
+      font-size: 2.8rem;
+      margin-bottom: 12px;
+      color: #FFFFFF;
+    }
+    .page-banner p {
+      color: var(--color-primary-light);
+      font-size: 1.1rem;
+      max-width: 650px;
+      margin: 0 auto;
+    }
+    .booking-engine-wrap {
+      margin-top: -35px;
+      position: relative;
+      z-index: 20;
+    }
+    .booking-filter-card {
+      background: #FFFFFF;
+      border-radius: var(--radius-md);
+      box-shadow: 0 16px 40px rgba(0,0,0,0.1);
+      padding: 24px;
+      border: 1px solid var(--color-border);
+      display: grid;
+      grid-template-columns: repeat(4, 1fr) auto;
+      gap: 16px;
+      align-items: center;
+    }
+    .filter-box label {
+      display: block;
+      font-size: 0.75rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: var(--color-text-muted);
+      margin-bottom: 6px;
+    }
+    .filter-box input, .filter-box select {
+      width: 100%;
+      padding: 12px;
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-sm);
+      font-size: 0.95rem;
+      color: var(--color-text-main);
+      outline: none;
+      transition: var(--transition-smooth);
+    }
+    .filter-box input:focus, .filter-box select:focus {
+      border-color: var(--color-primary);
+    }
+    .btn-submit-filter {
+      background: var(--color-primary);
+      color: #FFFFFF;
+      border: none;
+      padding: 14px 28px;
+      border-radius: var(--radius-sm);
+      font-weight: 700;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      transition: var(--transition-smooth);
+      height: 48px;
+      align-self: flex-end;
+    }
+    .btn-submit-filter:hover {
+      background: var(--color-primary-dark);
+      box-shadow: 0 4px 16px var(--color-primary-glow);
+      transform: translateY(-2px);
+    }
+    .booking-results-area {
+      padding: 60px 0 80px;
+    }
+
+    /* Booking Detailed Item Card */
+    .result-hotel-item {
+      display: grid;
+      grid-template-columns: 360px 1fr 240px;
+      background: #FFFFFF;
+      border-radius: var(--radius-md);
+      border: 1px solid var(--color-border);
+      overflow: hidden;
+      margin-bottom: 30px;
+      box-shadow: var(--shadow-sm);
+      transition: var(--transition-smooth);
+    }
+    .result-hotel-item:hover {
+      box-shadow: var(--shadow-md);
+      border-color: var(--color-primary);
+      transform: translateY(-4px);
+    }
+
+    /* Multi-image Gallery Container for Room */
+    .result-gallery-container {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      padding: 12px;
+      background: #FAFAFA;
+      border-right: 1px solid var(--color-border);
+    }
+    .result-main-img {
+      height: 200px;
+      width: 100%;
+      border-radius: var(--radius-sm);
+      overflow: hidden;
+    }
+    .result-main-img img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.5s ease;
+    }
+    .result-hotel-item:hover .result-main-img img {
+      transform: scale(1.04);
+    }
+    .result-thumbs-row {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 6px;
+    }
+    .result-thumb-mini {
+      height: 60px;
+      border-radius: 4px;
+      overflow: hidden;
+      cursor: pointer;
+      border: 1px solid transparent;
+      transition: border 0.2s ease;
+    }
+    .result-thumb-mini:hover {
+      border-color: var(--color-primary);
+    }
+    .result-thumb-mini img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .result-body {
+      padding: 24px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+    .result-pricing {
+      padding: 24px;
+      background: var(--color-bg-alt);
+      border-left: 1px solid var(--color-border);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: flex-end;
+      text-align: right;
+    }
+    .booking-badge-rating {
+      background: var(--color-booking-blue);
+      color: #FFFFFF;
+      padding: 5px 9px;
+      border-radius: 4px;
+      font-weight: 800;
+      font-size: 0.95rem;
+    }
+    .score-label {
+      font-size: 0.85rem;
+      font-weight: 700;
+      color: var(--color-text-main);
+    }
+
+    .detail-tag {
+      background: #F4F6F9;
+      color: var(--color-text-muted);
+      padding: 4px 10px;
+      border-radius: var(--radius-full);
+      font-size: 0.78rem;
+      font-weight: 600;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .detail-tag i {
+      color: var(--color-primary);
+    }
+
+    /* Responsive Ajustements pour Booking */
+    @media (max-width: 1024px) {
+      .booking-filter-card {
+        grid-template-columns: repeat(2, 1fr);
+      }
+      .btn-submit-filter {
+        grid-column: span 2;
+        width: 100%;
+      }
+      .result-hotel-item {
+        grid-template-columns: 1fr;
+      }
+      .result-gallery-container {
+        border-right: none;
+        border-bottom: 1px solid var(--color-border);
+      }
+      .result-pricing {
+        align-items: flex-start;
+        text-align: left;
+        border-left: none;
+        border-top: 1px solid var(--color-border);
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        flex-wrap: wrap;
+        gap: 12px;
+      }
+      .result-pricing a {
+        width: auto !important;
+        min-width: 150px;
+      }
+    }
+
+    @media (max-width: 600px) {
+      .booking-filter-card {
+        grid-template-columns: 1fr;
+      }
+      .btn-submit-filter {
+        grid-column: span 1;
+      }
+      .page-banner {
+        padding: 100px 0 45px;
+      }
+      .page-banner h1 {
+        font-size: 2rem;
+      }
+      .result-pricing {
+        flex-direction: column;
+        align-items: stretch;
+      }
+      .result-pricing a {
+        width: 100% !important;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Header -->
+  <header class="site-header">
+    <div class="nav-container">
+      <a href="index.html" class="nav-brand">
+        <img src="assets/logo/logo_transparent.png" alt="Yankers Royal Hotel">
+        <div class="brand-text">
+          <span class="brand-name">Yankers Royal</span>
+          <span class="brand-tag">HOTEL & RESORT</span>
+        </div>
+      </a>
+      <nav>
+        <ul class="nav-menu">
+          <li><a href="index.html" class="nav-link" data-i18n="home">Home</a></li>
+          <li><a href="booking.html" class="nav-link active" data-i18n="booking">Booking</a></li>
+          <li><a href="chambres.html" class="nav-link" data-i18n="rooms">Chambres</a></li>
+          <li><a href="news.html" class="nav-link" data-i18n="news">News</a></li>
+          <li><a href="about.html" class="nav-link" data-i18n="about">About</a></li>
+          <li><a href="contact.html" class="nav-link" data-i18n="contact">Contact</a></li>
+        </ul>
+      </nav>
+      <div class="nav-actions">
+        <!-- Bouton Sélecteur de Langue FR / EN -->
+        <div class="lang-switch-wrap">
+          <button type="button" class="lang-btn active" data-lang="fr">FR</button>
+          <button type="button" class="lang-btn" data-lang="en">EN</button>
+        </div>
+
+        <a href="signin.html" class="btn-signin" data-i18n="signin">Sign In</a>
+        <button class="btn-mobile-toggle" aria-label="Menu Mobile">
+          <i class="fa-solid fa-bars"></i>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Booking Ruban -->
+  <div class="booking-category-bar">
+    <div class="container">
+      <div class="category-scroll">
+        <a href="booking.html" class="category-pill active"><i class="fa-solid fa-bed"></i> <span data-i18n="ribbon_accommodations">Hébergements</span></a>
+        <a href="booking.html?type=vols" class="category-pill"><i class="fa-solid fa-plane-departure"></i> <span data-i18n="ribbon_flights">Vols & Transferts</span></a>
+        <a href="booking.html?type=formules" class="category-pill"><i class="fa-solid fa-earth-africa"></i> <span data-i18n="ribbon_packages">Séjours & Formules</span></a>
+        <a href="booking.html?type=voitures" class="category-pill"><i class="fa-solid fa-car"></i> <span data-i18n="ribbon_cars">Voitures VIP</span></a>
+        <a href="booking.html?type=attractions" class="category-pill"><i class="fa-solid fa-compass"></i> <span data-i18n="ribbon_attractions">Attractions & Spa</span></a>
+        <a href="booking.html?type=taxis" class="category-pill"><i class="fa-solid fa-taxi"></i> <span data-i18n="ribbon_taxis">Taxis aéroport</span></a>
+      </div>
+    </div>
+  </div>
+
+  <div class="page-banner">
+    <div class="container">
+      <h1>Moteur de Réservation Royal</h1>
+      <p>Trouvez la suite idéale avec aperçus photographiques multiples, disponiblité en temps réel et garantie du meilleur prix.</p>
+    </div>
+  </div>
+
+  <div class="container booking-engine-wrap">
+    <div class="booking-filter-card">
+      <div class="filter-box">
+        <label><i class="fa-solid fa-map-pin"></i> Destination</label>
+        <select>
+          <option selected>Yankers Royal Hotel, Kinshasa</option>
+          <option>Yankers Royal Villa Spa</option>
+        </select>
+      </div>
+      <div class="filter-box">
+        <label><i class="fa-solid fa-calendar-days"></i> Arrivée</label>
+        <input type="date" value="2026-10-15">
+      </div>
+      <div class="filter-box">
+        <label><i class="fa-solid fa-calendar-days"></i> Départ</label>
+        <input type="date" value="2026-10-18">
+      </div>
+      <div class="filter-box">
+        <label><i class="fa-solid fa-user-group"></i> Voyageurs</label>
+        <select>
+          <option>1 Adulte, 0 Enfant</option>
+          <option selected>2 Adultes, 0 Enfant</option>
+          <option>2 Adultes, 1 Enfant</option>
+          <option>Famille (4+ pers)</option>
+        </select>
+      </div>
+      <button class="btn-submit-filter">
+        <i class="fa-solid fa-magnifying-glass"></i> Rechercher
+      </button>
+    </div>
+  </div>
+
+  <main class="booking-results-area">
+    <div class="container">
+      
+      <!-- Result Item 1: Multi-photos Suite Royale -->
+      <article class="result-hotel-item">
+        <div class="result-gallery-container">
+          <div class="result-main-img">
+            <img src="assets/img/unnamed (1).webp" alt="Suite Royale Impériale">
+          </div>
+          <div class="result-thumbs-row">
+            <div class="result-thumb-mini"><img src="assets/img/unnamed (9).webp" alt="Salon privé"></div>
+            <div class="result-thumb-mini"><img src="assets/img/unnamed (10).webp" alt="Chambre King"></div>
+            <div class="result-thumb-mini"><img src="assets/img/unnamed (4).webp" alt="Terrasse panoramique"></div>
+          </div>
+        </div>
+        <div class="result-body">
+          <div>
+            <div style="display:flex; justify-content: space-between; align-items: flex-start; margin-bottom: 6px; flex-wrap: wrap; gap: 8px;">
+              <h2 style="font-family: var(--font-serif); font-size: 1.5rem; color: var(--color-text-main);">Suite Royale Impériale &bull; Vue Mer</h2>
+              <div style="display:flex; align-items:center; gap: 8px;">
+                <div>
+                  <div class="score-label">Exceptionnel</div>
+                  <div style="font-size: 0.75rem; color: var(--color-text-light);">210 avis</div>
+                </div>
+                <div class="booking-badge-rating">9.8</div>
+              </div>
+            </div>
+            <p style="color: var(--color-text-muted); font-size: 0.9rem; margin-bottom: 12px;">
+              <i class="fa-solid fa-location-dot" style="color: var(--color-primary);"></i> Emplacement royal &bull; Étage supérieur avec balcon privatif
+            </p>
+            <div style="display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 16px;">
+              <span class="detail-tag"><i class="fa-solid fa-expand"></i> 65 m²</span>
+              <span class="detail-tag"><i class="fa-solid fa-bed"></i> 1 Très grand lit double</span>
+              <span class="detail-tag"><i class="fa-solid fa-bath"></i> Bain à remous</span>
+              <span class="detail-tag"><i class="fa-solid fa-wind"></i> Climatisation intégrale</span>
+              <span class="detail-tag"><i class="fa-solid fa-wifi"></i> Fibre 1 Gbps</span>
+            </div>
+            <div style="background: #eef7ee; color: #1e7e34; padding: 6px 12px; border-radius: 4px; display: inline-block; font-size: 0.82rem; font-weight: 700;">
+              <i class="fa-solid fa-check"></i> Petit-déjeuner buffet inclus &bull; Annulation gratuite jusqu'à 24h
+            </div>
+          </div>
+          <div style="font-size: 0.85rem; color: var(--color-text-muted); margin-top: 10px;">
+            Service de conciergerie 24h/24 &bull; Minibar réapprovisionné &bull; Peignoirs et chaussons de luxe
+          </div>
+        </div>
+        <div class="result-pricing">
+          <div>
+            <span style="font-size: 0.8rem; color: var(--color-text-light);">3 nuits, 2 adultes</span>
+            <div style="font-size: 1.7rem; font-weight: 800; color: var(--color-text-main); margin: 4px 0;">540 $</div>
+            <span style="font-size: 0.75rem; color: #2e7d32; font-weight: 600; display: block; margin-bottom: 10px;">Taxes et frais inclus</span>
+          </div>
+          <a href="contact.html?reserve=royale-imperiale" class="btn-signin" style="text-align: center;">Voir l'offre</a>
+        </div>
+      </article>
+
+      <!-- Result Item 2: Multi-photos Chambre Deluxe -->
+      <article class="result-hotel-item">
+        <div class="result-gallery-container">
+          <div class="result-main-img">
+            <img src="assets/img/unnamed (2).webp" alt="Chambre Deluxe Prestige">
+          </div>
+          <div class="result-thumbs-row">
+            <div class="result-thumb-mini"><img src="assets/img/unnamed (11).webp" alt="Lit queen"></div>
+            <div class="result-thumb-mini"><img src="assets/img/unnamed (12).webp" alt="Salle de bain"></div>
+            <div class="result-thumb-mini"><img src="assets/img/unnamed (5).webp" alt="Extérieur jardin"></div>
+          </div>
+        </div>
+        <div class="result-body">
+          <div>
+            <div style="display:flex; justify-content: space-between; align-items: flex-start; margin-bottom: 6px; flex-wrap: wrap; gap: 8px;">
+              <h2 style="font-family: var(--font-serif); font-size: 1.5rem; color: var(--color-text-main);">Chambre Deluxe Prestige &bull; Vue Jardin</h2>
+              <div style="display:flex; align-items:center; gap: 8px;">
+                <div>
+                  <div class="score-label">Superbe</div>
+                  <div style="font-size: 0.75rem; color: var(--color-text-light);">184 avis</div>
+                </div>
+                <div class="booking-badge-rating">9.3</div>
+              </div>
+            </div>
+            <p style="color: var(--color-text-muted); font-size: 0.9rem; margin-bottom: 12px;">
+              <i class="fa-solid fa-location-dot" style="color: var(--color-primary);"></i> Vue calme et végétale &bull; Terrasse privée aménagée
+            </p>
+            <div style="display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 16px;">
+              <span class="detail-tag"><i class="fa-solid fa-expand"></i> 45 m²</span>
+              <span class="detail-tag"><i class="fa-solid fa-bed"></i> 1 Lit Queen-size</span>
+              <span class="detail-tag"><i class="fa-solid fa-mug-saucer"></i> Machine Nespresso</span>
+              <span class="detail-tag"><i class="fa-solid fa-shield"></i> Coffre-fort numérique</span>
+            </div>
+            <div style="background: #eef7ee; color: #1e7e34; padding: 6px 12px; border-radius: 4px; display: inline-block; font-size: 0.82rem; font-weight: 700;">
+              <i class="fa-solid fa-check"></i> Accès spa et piscine compris dans l'offre
+            </div>
+          </div>
+          <div style="font-size: 0.85rem; color: var(--color-text-muted); margin-top: 10px;">
+            Insonorisation phonique premium &bull; Écran 55 pouces Smart TV &bull; Produits d'accueil haut de gamme
+          </div>
+        </div>
+        <div class="result-pricing">
+          <div>
+            <span style="font-size: 0.8rem; color: var(--color-text-light);">3 nuits, 2 adultes</span>
+            <div style="font-size: 1.7rem; font-weight: 800; color: var(--color-text-main); margin: 4px 0;">390 $</div>
+            <span style="font-size: 0.75rem; color: #2e7d32; font-weight: 600; display: block; margin-bottom: 10px;">Taxes et frais inclus</span>
+          </div>
+          <a href="contact.html?reserve=deluxe-prestige" class="btn-signin" style="text-align: center;">Voir l'offre</a>
+        </div>
+      </article>
+
+      <!-- Result Item 3: Multi-photos Suite Familiale Exécutive -->
+      <article class="result-hotel-item">
+        <div class="result-gallery-container">
+          <div class="result-main-img">
+            <img src="assets/img/unnamed (3).webp" alt="Suite Exécutive Familiale">
+          </div>
+          <div class="result-thumbs-row">
+            <div class="result-thumb-mini"><img src="assets/img/unnamed (13).webp" alt="Chambre 2"></div>
+            <div class="result-thumb-mini"><img src="assets/img/unnamed.webp" alt="Espace repas"></div>
+            <div class="result-thumb-mini"><img src="assets/img/unnamed (7).webp" alt="Vue suite"></div>
+          </div>
+        </div>
+        <div class="result-body">
+          <div>
+            <div style="display:flex; justify-content: space-between; align-items: flex-start; margin-bottom: 6px; flex-wrap: wrap; gap: 8px;">
+              <h2 style="font-family: var(--font-serif); font-size: 1.5rem; color: var(--color-text-main);">Suite Exécutive Familiale &bull; 2 Chambres</h2>
+              <div style="display:flex; align-items:center; gap: 8px;">
+                <div>
+                  <div class="score-label">Fabuleux</div>
+                  <div style="font-size: 0.75rem; color: var(--color-text-light);">142 avis</div>
+                </div>
+                <div class="booking-badge-rating">9.5</div>
+              </div>
+            </div>
+            <p style="color: var(--color-text-muted); font-size: 0.9rem; margin-bottom: 12px;">
+              <i class="fa-solid fa-location-dot" style="color: var(--color-primary);"></i> Vue piscine et complexe &bull; Pavillon privatif
+            </p>
+            <div style="display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 16px;">
+              <span class="detail-tag"><i class="fa-solid fa-expand"></i> 85 m²</span>
+              <span class="detail-tag"><i class="fa-solid fa-people-roof"></i> 4 Personnes</span>
+              <span class="detail-tag"><i class="fa-solid fa-couch"></i> Salon séjour indépendant</span>
+              <span class="detail-tag"><i class="fa-solid fa-kitchen-set"></i> Kitchenette équipée</span>
+            </div>
+            <div style="background: #eef7ee; color: #1e7e34; padding: 6px 12px; border-radius: 4px; display: inline-block; font-size: 0.82rem; font-weight: 700;">
+              <i class="fa-solid fa-check"></i> Navette aéroport incluse &bull; Check-in anticipé selon disponibilité
+            </div>
+          </div>
+          <div style="font-size: 0.85rem; color: var(--color-text-muted); margin-top: 10px;">
+            Idéal pour familles et séjours prolongés &bull; 2 salles de bain attenantes &bull; Service bagagiste
+          </div>
+        </div>
+        <div class="result-pricing">
+          <div>
+            <span style="font-size: 0.8rem; color: var(--color-text-light);">3 nuits, 4 personnes</span>
+            <div style="font-size: 1.7rem; font-weight: 800; color: var(--color-text-main); margin: 4px 0;">720 $</div>
+            <span style="font-size: 0.75rem; color: #2e7d32; font-weight: 600; display: block; margin-bottom: 10px;">Taxes et frais inclus</span>
+          </div>
+          <a href="contact.html?reserve=executive-famille" class="btn-signin" style="text-align: center;">Voir l'offre</a>
+        </div>
+      </article>
+
+    </div>
+  </main>
+
+  <!-- Footer Standardisé -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-top">
+        <div class="footer-brand">
+          <img src="assets/logo/logo_transparent.png" alt="Yankers Royal Hotel">
+          <p data-i18n="footer_desc">
+            Yankers Royal Hotel combine le raffinement intemporel et les standards internationaux de réservation pour un séjour d'exception.
+          </p>
+          <div class="footer-contacts-list">
+            <span><i class="fa-solid fa-location-dot"></i> Boulevard Principal, Kinshasa, RDC</span>
+            <span><i class="fa-solid fa-phone"></i> +243 81 000 0000</span>
+            <span><i class="fa-solid fa-envelope"></i> contact@yankersroyalhotel.com</span>
+          </div>
+        </div>
+
+        <div class="footer-col">
+          <h3 data-i18n="footer_nav">Navigation</h3>
+          <ul class="footer-links">
+            <li><a href="index.html"><i class="fa-solid fa-chevron-right"></i> <span data-i18n="home">Accueil</span></a></li>
+            <li><a href="booking.html"><i class="fa-solid fa-chevron-right"></i> <span data-i18n="booking">Réservations</span></a></li>
+            <li><a href="chambres.html"><i class="fa-solid fa-chevron-right"></i> <span data-i18n="rooms">Chambres & Suites</span></a></li>
+            <li><a href="news.html"><i class="fa-solid fa-chevron-right"></i> <span data-i18n="news">Actualités</span></a></li>
+            <li><a href="about.html"><i class="fa-solid fa-chevron-right"></i> <span data-i18n="about">À Propos</span></a></li>
+            <li><a href="contact.html"><i class="fa-solid fa-chevron-right"></i> <span data-i18n="contact">Contact</span></a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h3 data-i18n="footer_services">Services & Booking</h3>
+          <ul class="footer-links">
+            <li><a href="booking.html?filter=suite"><i class="fa-solid fa-chevron-right"></i> Réservation Express</a></li>
+            <li><a href="chambres.html#tarifs"><i class="fa-solid fa-chevron-right"></i> Tarifs & Formules</a></li>
+            <li><a href="booking.html?type=vols"><i class="fa-solid fa-chevron-right"></i> Navette Aéroport VIP</a></li>
+            <li><a href="about.html#spa"><i class="fa-solid fa-chevron-right"></i> Espace Bien-Être & Spa</a></li>
+            <li><a href="about.html#restaurant"><i class="fa-solid fa-chevron-right"></i> Restaurant Gastronomique</a></li>
+            <li><a href="contact.html#evenements"><i class="fa-solid fa-chevron-right"></i> Conférences & Mariages</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h3 data-i18n="footer_legal">Assistance & Légal</h3>
+          <ul class="footer-links">
+            <li><a href="signin.html"><i class="fa-solid fa-chevron-right"></i> Espace Client / Sign In</a></li>
+            <li><a href="contact.html#faq"><i class="fa-solid fa-chevron-right"></i> Foire aux Questions (FAQ)</a></li>
+            <li><a href="contact.html#conditions"><i class="fa-solid fa-chevron-right"></i> Conditions Générales</a></li>
+            <li><a href="contact.html#politique"><i class="fa-solid fa-chevron-right"></i> Politique de Confidentialité</a></li>
+            <li><a href="contact.html#support"><i class="fa-solid fa-chevron-right"></i> Conciergerie Dédiée 24/7</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p data-i18n="footer_copy">&copy; 2026 Yankers Royal Hotel. Tous droits réservés.</p>
+        <div class="footer-social-row">
+          <a href="#" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+          <a href="#" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+          <a href="#" aria-label="Twitter"><i class="fa-brands fa-x-twitter"></i></a>
+          <a href="#" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="assets/js/main.js"></script>
+</body>
+</html>

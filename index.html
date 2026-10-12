@@ -1,0 +1,519 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Yankers Royal Hotel - Réservation de prestige</title>
+  <link rel="icon" type="image/x-icon" href="assets/ico/favicon.ico">
+  
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  
+  <!-- FontAwesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  
+  <!-- Stylesheet -->
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+
+  <!-- 1. Motion Splash Screen -->
+  <div id="splash-screen">
+    <div class="splash-content">
+      <div class="splash-logo-wrap">
+        <div class="splash-ring"></div>
+        <img src="assets/logo/logo_transparent.png" alt="Yankers Royal Hotel" class="splash-logo">
+      </div>
+      <h2 class="splash-title">Yankers Royal Hotel</h2>
+      <p class="splash-sub">Expérience hôtelière d'exception</p>
+      <div class="splash-bar-wrap">
+        <div class="splash-bar"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 2. Header avec Logo Agrandit, Survol Souligné et Bouton Traduction (FR / EN) -->
+  <header class="site-header">
+    <div class="nav-container">
+      <a href="index.html" class="nav-brand">
+        <img src="assets/logo/logo_transparent.png" alt="Yankers Royal Hotel">
+        <div class="brand-text">
+          <span class="brand-name">Yankers Royal</span>
+          <span class="brand-tag">HOTEL & RESORT</span>
+        </div>
+      </a>
+
+      <nav>
+        <ul class="nav-menu">
+          <li><a href="index.html" class="nav-link active" data-i18n="nav_home">Home</a></li>
+          <li><a href="booking.html" class="nav-link" data-i18n="nav_booking">Booking</a></li>
+          <li><a href="chambres.html" class="nav-link" data-i18n="nav_rooms">Chambres</a></li>
+          <li><a href="news.html" class="nav-link" data-i18n="nav_news">News</a></li>
+          <li><a href="about.html" class="nav-link" data-i18n="nav_about">About</a></li>
+          <li><a href="contact.html" class="nav-link" data-i18n="nav_contact">Contact</a></li>
+        </ul>
+      </nav>
+
+      <div class="nav-actions">
+        <!-- Sélecteur de Langue FR / EN -->
+        <div class="lang-switch-wrap">
+          <button type="button" class="lang-btn active" data-lang="fr">FR</button>
+          <button type="button" class="lang-btn" data-lang="en">EN</button>
+        </div>
+
+        <a href="signin.html" class="btn-signin" data-i18n="btn_signin">Sign In</a>
+        <button class="btn-mobile-toggle" aria-label="Menu Mobile">
+          <i class="fa-solid fa-bars"></i>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- 3. Ruban de Catégories Booking.com -->
+  <div class="booking-category-bar">
+    <div class="container">
+      <div class="category-scroll">
+        <a href="booking.html" class="category-pill active">
+          <i class="fa-solid fa-bed"></i> <span data-i18n="ribbon_accommodations">Hébergements</span>
+        </a>
+        <a href="booking.html?type=vols" class="category-pill">
+          <i class="fa-solid fa-plane-departure"></i> <span data-i18n="ribbon_flights">Vols & Transferts</span>
+        </a>
+        <a href="booking.html?type=formules" class="category-pill">
+          <i class="fa-solid fa-earth-africa"></i> <span data-i18n="ribbon_packages">Séjours & Formules</span>
+        </a>
+        <a href="booking.html?type=voitures" class="category-pill">
+          <i class="fa-solid fa-car"></i> <span data-i18n="ribbon_cars">Voitures VIP</span>
+        </a>
+        <a href="booking.html?type=attractions" class="category-pill">
+          <i class="fa-solid fa-compass"></i> <span data-i18n="ribbon_attractions">Attractions & Spa</span>
+        </a>
+        <a href="booking.html?type=taxis" class="category-pill">
+          <i class="fa-solid fa-taxi"></i> <span data-i18n="ribbon_taxis">Taxis aéroport</span>
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <main>
+    <!-- 4. Section Hero : Images du dossier img, Slider Automatique, Sans flèches/pagination -->
+    <section class="hero-mockup-section">
+      <div class="container hero-mockup-grid">
+        
+        <!-- Contenu Gauche -->
+        <div class="hero-left-content">
+          <h1 class="hero-main-title">
+            <span data-i18n="hero_title_1">You Have A Destination,</span><br>
+            <em><span data-i18n="hero_title_2">We Have A Place</span></em>
+          </h1>
+          <p class="hero-desc" data-i18n="hero_desc">
+            Vivez un confort inégalé au cœur de notre complexe prestigieux. Un service royal, une gastronomie raffinée et des suites aménagées pour sublimer chacun de vos instants.
+          </p>
+
+          <!-- Barre de Recherche Booking Dorée -->
+          <div class="hero-search-card">
+            
+            <div class="search-field-item">
+              <div class="field-label-row">
+                <span class="field-label" data-i18n="person_label">Person</span>
+                <i class="fa-solid fa-caret-down field-chevron"></i>
+              </div>
+              <span class="field-sub" id="person-value-label" data-i18n="person_sub">Adult/Child</span>
+              <select id="person-select" aria-label="Personnes">
+                <option value="1 Adulte" data-i18n="adult_1">1 Adulte</option>
+                <option value="2 Adultes" data-i18n="adult_2" selected>2 Adultes</option>
+                <option value="Famille (4+ pers)" data-i18n="adult_family">Famille (4+ pers)</option>
+              </select>
+            </div>
+
+            <div class="search-field-item">
+              <div class="field-label-row">
+                <span class="field-label" data-i18n="checkin_label">Check In</span>
+                <i class="fa-solid fa-caret-down field-chevron"></i>
+              </div>
+              <span class="field-sub" id="checkin-value-label" data-i18n="checkin_sub">Start</span>
+              <input type="date" id="checkin-input" aria-label="Date d'arrivée">
+            </div>
+
+            <div class="search-field-item">
+              <div class="field-label-row">
+                <span class="field-label" data-i18n="checkout_label">Check Out</span>
+                <i class="fa-solid fa-caret-down field-chevron"></i>
+              </div>
+              <span class="field-sub" id="checkout-value-label" data-i18n="checkout_sub">Until</span>
+              <input type="date" id="checkout-input" aria-label="Date de départ">
+            </div>
+
+            <!-- Bouton Doré Logo -->
+            <button class="btn-search-hero" aria-label="Search" data-i18n="search_btn">
+              Search
+            </button>
+          </div>
+
+          <!-- Discover More (Épuré sans flèches ni pagination) -->
+          <div class="hero-discover-meta">
+            <div class="discover-texts">
+              <h4 data-i18n="discover_title">Discover More</h4>
+              <p data-i18n="discover_sub">Explorez nos suites signature, piscines et bien-être.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Visuel Droite avec Slider Automatique utilisant les images du dossier img -->
+        <div class="hero-right-visual">
+          <div class="hero-organic-frame-svg">
+            <div class="hero-slides-wrapper">
+              <div class="hero-slide active">
+                <img src="assets/img/unnamed.webp" alt="Yankers Royal Resort & Hotel">
+              </div>
+              <div class="hero-slide">
+                <img src="assets/img/unnamed (1).webp" alt="Suite Royale Impériale">
+              </div>
+              <div class="hero-slide">
+                <img src="assets/img/unnamed (2).webp" alt="Chambre Deluxe Prestige">
+              </div>
+              <div class="hero-slide">
+                <img src="assets/img/unnamed (3).webp" alt="Suite Exécutive Familiale">
+              </div>
+              <div class="hero-slide">
+                <img src="assets/img/unnamed (4).webp" alt="Suite Présidentielle">
+              </div>
+            </div>
+          </div>
+          <!-- Coin d'accent doré -->
+          <div class="hero-corner-accent"></div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- 5. Avantages Réservation Directe -->
+    <section class="section-benefits">
+      <div class="container">
+        <div class="benefits-grid">
+          <div class="benefit-item">
+            <div class="benefit-icon">
+              <i class="fa-solid fa-certificate"></i>
+            </div>
+            <div>
+              <h4 data-i18n="benefit_1_title">Garantie Meilleur Tarif</h4>
+              <p data-i18n="benefit_1_desc">Tarifs officiels directs, sans frais cachés.</p>
+            </div>
+          </div>
+          <div class="benefit-item">
+            <div class="benefit-icon">
+              <i class="fa-solid fa-calendar-check"></i>
+            </div>
+            <div>
+              <h4 data-i18n="benefit_2_title">Annulation Flexible</h4>
+              <p data-i18n="benefit_2_desc">Modifiez votre séjour en toute liberté.</p>
+            </div>
+          </div>
+          <div class="benefit-item">
+            <div class="benefit-icon">
+              <i class="fa-solid fa-bell-concierge"></i>
+            </div>
+            <div>
+              <h4 data-i18n="benefit_3_title">Conciergerie 24/7</h4>
+              <p data-i18n="benefit_3_desc">Assistance dédiée et accueil royal.</p>
+            </div>
+          </div>
+          <div class="benefit-item">
+            <div class="benefit-icon">
+              <i class="fa-solid fa-wifi"></i>
+            </div>
+            <div>
+              <h4 data-i18n="benefit_4_title">Wi-Fi & Accès Spa</h4>
+              <p data-i18n="benefit_4_desc">Connexion fibre et accès lagon offerts.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 6. Section "L'art de l'hospitalité royale" avec 8 IMAGES (4 par ligne) -->
+    <section class="section-hospitality-gallery">
+      <div class="container">
+        <div class="section-head">
+          <span class="section-subtitle" data-i18n="hospitality_subtitle">Chambres & Suites</span>
+          <h2 class="section-title" data-i18n="hospitality_title">L'art de l'hospitalité royale</h2>
+        </div>
+
+        <div class="gallery-grid-4cols">
+          <!-- 1ère Ligne : 4 Chambres -->
+          <article class="hospitality-card">
+            <div class="hospitality-thumb-wrap">
+              <span class="hospitality-badge">Vue Lagon</span>
+              <img src="assets/img/unnamed (1).webp" alt="Suite Royale Impériale" class="hospitality-thumb">
+            </div>
+            <div class="hospitality-details">
+              <div class="hospitality-rating">
+                <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                <span>5.0</span>
+              </div>
+              <h3 class="hospitality-name">Suite Royale Impériale</h3>
+              <div class="hospitality-features">
+                <span><i class="fa-solid fa-expand"></i> 65 m²</span>
+                <span><i class="fa-solid fa-user-group"></i> 2 Pers</span>
+              </div>
+              <div class="hospitality-footer">
+                <div class="hospitality-price">
+                  <span class="price-val">180 $</span>
+                  <span class="price-sub" data-i18n="per_night">par nuit</span>
+                </div>
+                <a href="booking.html?room=royale" class="btn-book-room" data-i18n="btn_book_now">Réserver</a>
+              </div>
+            </div>
+          </article>
+
+          <article class="hospitality-card">
+            <div class="hospitality-thumb-wrap">
+              <span class="hospitality-badge">Coup de cœur</span>
+              <img src="assets/img/unnamed (2).webp" alt="Chambre Deluxe Prestige" class="hospitality-thumb">
+            </div>
+            <div class="hospitality-details">
+              <div class="hospitality-rating">
+                <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                <span>4.9</span>
+              </div>
+              <h3 class="hospitality-name">Chambre Deluxe Prestige</h3>
+              <div class="hospitality-features">
+                <span><i class="fa-solid fa-expand"></i> 45 m²</span>
+                <span><i class="fa-solid fa-bath"></i> Balnéo</span>
+              </div>
+              <div class="hospitality-footer">
+                <div class="hospitality-price">
+                  <span class="price-val">130 $</span>
+                  <span class="price-sub" data-i18n="per_night">par nuit</span>
+                </div>
+                <a href="booking.html?room=deluxe" class="btn-book-room" data-i18n="btn_book_now">Réserver</a>
+              </div>
+            </div>
+          </article>
+
+          <article class="hospitality-card">
+            <div class="hospitality-thumb-wrap">
+              <span class="hospitality-badge">Familiale</span>
+              <img src="assets/img/unnamed (3).webp" alt="Suite Exécutive Familiale" class="hospitality-thumb">
+            </div>
+            <div class="hospitality-details">
+              <div class="hospitality-rating">
+                <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star-half-stroke"></i>
+                <span>4.8</span>
+              </div>
+              <h3 class="hospitality-name">Suite Exécutive Familiale</h3>
+              <div class="hospitality-features">
+                <span><i class="fa-solid fa-expand"></i> 85 m²</span>
+                <span><i class="fa-solid fa-couch"></i> Salon VIP</span>
+              </div>
+              <div class="hospitality-footer">
+                <div class="hospitality-price">
+                  <span class="price-val">240 $</span>
+                  <span class="price-sub" data-i18n="per_night">par nuit</span>
+                </div>
+                <a href="booking.html?room=executive" class="btn-book-room" data-i18n="btn_book_now">Réserver</a>
+              </div>
+            </div>
+          </article>
+
+          <article class="hospitality-card">
+            <div class="hospitality-thumb-wrap">
+              <span class="hospitality-badge">Panoramique</span>
+              <img src="assets/img/unnamed (4).webp" alt="Suite Présidentielle" class="hospitality-thumb">
+            </div>
+            <div class="hospitality-details">
+              <div class="hospitality-rating">
+                <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                <span>5.0</span>
+              </div>
+              <h3 class="hospitality-name">Suite Présidentielle</h3>
+              <div class="hospitality-features">
+                <span><i class="fa-solid fa-expand"></i> 110 m²</span>
+                <span><i class="fa-solid fa-martini-glass"></i> Mini-bar</span>
+              </div>
+              <div class="hospitality-footer">
+                <div class="hospitality-price">
+                  <span class="price-val">310 $</span>
+                  <span class="price-sub" data-i18n="per_night">par nuit</span>
+                </div>
+                <a href="booking.html?room=presidentielle" class="btn-book-room" data-i18n="btn_book_now">Réserver</a>
+              </div>
+            </div>
+          </article>
+
+          <!-- 2ème Ligne : 4 Chambres supplémentaires -->
+          <article class="hospitality-card">
+            <div class="hospitality-thumb-wrap">
+              <span class="hospitality-badge">Vue Jardin</span>
+              <img src="assets/img/unnamed (5).webp" alt="Suite Deluxe King Garden" class="hospitality-thumb">
+            </div>
+            <div class="hospitality-details">
+              <div class="hospitality-rating">
+                <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                <span>4.9</span>
+              </div>
+              <h3 class="hospitality-name">Suite Deluxe King Garden</h3>
+              <div class="hospitality-features">
+                <span><i class="fa-solid fa-expand"></i> 50 m²</span>
+                <span><i class="fa-solid fa-leaf"></i> Jardin privé</span>
+              </div>
+              <div class="hospitality-footer">
+                <div class="hospitality-price">
+                  <span class="price-val">150 $</span>
+                  <span class="price-sub" data-i18n="per_night">par nuit</span>
+                </div>
+                <a href="booking.html?room=garden" class="btn-book-room" data-i18n="btn_book_now">Réserver</a>
+              </div>
+            </div>
+          </article>
+
+          <article class="hospitality-card">
+            <div class="hospitality-thumb-wrap">
+              <span class="hospitality-badge">Signature</span>
+              <img src="assets/img/unnamed (6).webp" alt="Suite Grand Ambassadeur" class="hospitality-thumb">
+            </div>
+            <div class="hospitality-details">
+              <div class="hospitality-rating">
+                <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                <span>5.0</span>
+              </div>
+              <h3 class="hospitality-name">Suite Grand Ambassadeur</h3>
+              <div class="hospitality-features">
+                <span><i class="fa-solid fa-expand"></i> 75 m²</span>
+                <span><i class="fa-solid fa-utensils"></i> Petit-déj inclus</span>
+              </div>
+              <div class="hospitality-footer">
+                <div class="hospitality-price">
+                  <span class="price-val">210 $</span>
+                  <span class="price-sub" data-i18n="per_night">par nuit</span>
+                </div>
+                <a href="booking.html?room=ambassadeur" class="btn-book-room" data-i18n="btn_book_now">Réserver</a>
+              </div>
+            </div>
+          </article>
+
+          <article class="hospitality-card">
+            <div class="hospitality-thumb-wrap">
+              <span class="hospitality-badge">Cocooning</span>
+              <img src="assets/img/unnamed (7).webp" alt="Chambre Romantique Royale" class="hospitality-thumb">
+            </div>
+            <div class="hospitality-details">
+              <div class="hospitality-rating">
+                <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star-half-stroke"></i>
+                <span>4.8</span>
+              </div>
+              <h3 class="hospitality-name">Chambre Romantique Royale</h3>
+              <div class="hospitality-features">
+                <span><i class="fa-solid fa-expand"></i> 42 m²</span>
+                <span><i class="fa-solid fa-spa"></i> Pack Spa offert</span>
+              </div>
+              <div class="hospitality-footer">
+                <div class="hospitality-price">
+                  <span class="price-val">125 $</span>
+                  <span class="price-sub" data-i18n="per_night">par nuit</span>
+                </div>
+                <a href="booking.html?room=romantique" class="btn-book-room" data-i18n="btn_book_now">Réserver</a>
+              </div>
+            </div>
+          </article>
+
+          <article class="hospitality-card">
+            <div class="hospitality-thumb-wrap">
+              <span class="hospitality-badge">Business VIP</span>
+              <img src="assets/img/unnamed (8).webp" alt="Suite Royale Executive" class="hospitality-thumb">
+            </div>
+            <div class="hospitality-details">
+              <div class="hospitality-rating">
+                <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                <span>4.9</span>
+              </div>
+              <h3 class="hospitality-name">Suite Royale Executive</h3>
+              <div class="hospitality-features">
+                <span><i class="fa-solid fa-expand"></i> 60 m²</span>
+                <span><i class="fa-solid fa-laptop"></i> Bureau équipé</span>
+              </div>
+              <div class="hospitality-footer">
+                <div class="hospitality-price">
+                  <span class="price-val">175 $</span>
+                  <span class="price-sub" data-i18n="per_night">par nuit</span>
+                </div>
+                <a href="booking.html?room=executive-vip" class="btn-book-room" data-i18n="btn_book_now">Réserver</a>
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- 7. Footer Complet & Standardisé -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-top">
+        
+        <div class="footer-brand">
+          <img src="assets/logo/logo_transparent.png" alt="Yankers Royal Hotel">
+          <p data-i18n="footer_desc">
+            Yankers Royal Hotel combine le raffinement intemporel et les standards internationaux de réservation pour un séjour d'exception.
+          </p>
+          <div class="footer-contacts-list">
+            <span><i class="fa-solid fa-location-dot"></i> Boulevard Principal, Kinshasa, RDC</span>
+            <span><i class="fa-solid fa-phone"></i> +243 81 000 0000</span>
+            <span><i class="fa-solid fa-envelope"></i> contact@yankersroyalhotel.com</span>
+          </div>
+        </div>
+
+        <div class="footer-col">
+          <h3 data-i18n="footer_nav">Navigation</h3>
+          <ul class="footer-links">
+            <li><a href="index.html"><i class="fa-solid fa-chevron-right"></i> <span data-i18n="footer_home">Accueil</span></a></li>
+            <li><a href="booking.html"><i class="fa-solid fa-chevron-right"></i> <span data-i18n="footer_booking">Réservations</span></a></li>
+            <li><a href="chambres.html"><i class="fa-solid fa-chevron-right"></i> <span data-i18n="footer_rooms">Chambres & Suites</span></a></li>
+            <li><a href="news.html"><i class="fa-solid fa-chevron-right"></i> <span data-i18n="footer_news">Actualités</span></a></li>
+            <li><a href="about.html"><i class="fa-solid fa-chevron-right"></i> <span data-i18n="footer_about">À Propos</span></a></li>
+            <li><a href="contact.html"><i class="fa-solid fa-chevron-right"></i> <span data-i18n="footer_contact">Contact</span></a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h3 data-i18n="footer_services">Services & Booking</h3>
+          <ul class="footer-links">
+            <li><a href="booking.html?filter=suite"><i class="fa-solid fa-chevron-right"></i> <span data-i18n="footer_express">Réservation Express</span></a></li>
+            <li><a href="chambres.html#tarifs"><i class="fa-solid fa-chevron-right"></i> <span data-i18n="footer_rates">Tarifs & Formules</span></a></li>
+            <li><a href="booking.html?type=vols"><i class="fa-solid fa-chevron-right"></i> <span data-i18n="footer_shuttle">Navette Aéroport VIP</span></a></li>
+            <li><a href="about.html#spa"><i class="fa-solid fa-chevron-right"></i> <span data-i18n="footer_spa">Espace Bien-Être & Spa</span></a></li>
+            <li><a href="about.html#restaurant"><i class="fa-solid fa-chevron-right"></i> <span data-i18n="footer_restaurant">Restaurant Gastronomique</span></a></li>
+            <li><a href="contact.html#evenements"><i class="fa-solid fa-chevron-right"></i> <span data-i18n="footer_events">Conférences & Mariages</span></a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h3 data-i18n="footer_legal">Assistance & Légal</h3>
+          <ul class="footer-links">
+            <li><a href="signin.html"><i class="fa-solid fa-chevron-right"></i> <span data-i18n="footer_client_space">Espace Client / Sign In</span></a></li>
+            <li><a href="contact.html#faq"><i class="fa-solid fa-chevron-right"></i> <span data-i18n="footer_faq">Foire aux Questions (FAQ)</span></a></li>
+            <li><a href="contact.html#conditions"><i class="fa-solid fa-chevron-right"></i> <span data-i18n="footer_terms">Conditions Générales</span></a></li>
+            <li><a href="contact.html#politique"><i class="fa-solid fa-chevron-right"></i> <span data-i18n="footer_privacy">Politique de Confidentialité</span></a></li>
+            <li><a href="contact.html#support"><i class="fa-solid fa-chevron-right"></i> <span data-i18n="footer_support">Conciergerie Dédiée 24/7</span></a></li>
+          </ul>
+        </div>
+
+      </div>
+
+      <div class="footer-bottom">
+        <p data-i18n="footer_copy">&copy; 2026 Yankers Royal Hotel. Tous droits réservés.</p>
+        <div class="footer-social-row">
+          <a href="#" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+          <a href="#" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+          <a href="#" aria-label="Twitter"><i class="fa-brands fa-x-twitter"></i></a>
+          <a href="#" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="assets/js/main.js"></script>
+</body>
+</html>

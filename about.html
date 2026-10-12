@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>À Propos - Yankers Royal Hotel</title>
+  <link rel="icon" type="image/x-icon" href="assets/ico/favicon.ico">
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="stylesheet" href="assets/css/style.css">
+  
+  <style>
+    .about-hero {
+      background: #FFFFFF;
+      padding: 140px 0 60px;
+      border-bottom: 1px solid var(--color-border);
+    }
+    .about-story-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 50px;
+      align-items: center;
+      padding: 80px 0;
+    }
+    .about-img-frame {
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      box-shadow: var(--shadow-lg);
+    }
+    .stats-row {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 20px;
+      margin-top: 50px;
+      background: var(--color-bg-alt);
+      padding: 40px;
+      border-radius: var(--radius-md);
+      border: 1px solid var(--color-border);
+    }
+    .stat-number {
+      font-size: 2.4rem;
+      font-weight: 800;
+      color: var(--color-primary-dark);
+      font-family: var(--font-serif);
+    }
+    .stat-title {
+      font-size: 0.85rem;
+      color: var(--color-text-muted);
+      font-weight: 600;
+    }
+    @media (max-width: 900px) {
+      .about-story-grid { grid-template-columns: 1fr; }
+      .stats-row { grid-template-columns: repeat(2, 1fr); }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Header -->
+  <header class="site-header">
+    <div class="nav-container">
+      <a href="index.html" class="nav-brand">
+        <img src="assets/logo/logo_transparent.png" alt="Yankers Royal Hotel">
+        <div class="brand-text">
+          <span class="brand-name">Yankers Royal</span>
+          <span class="brand-tag">HOTEL & RESORT</span>
+        </div>
+      </a>
+      <nav>
+        <ul class="nav-menu">
+          <li><a href="index.html" class="nav-link" data-i18n="home">Home</a></li>
+          <li><a href="booking.html" class="nav-link" data-i18n="booking">Booking</a></li>
+          <li><a href="chambres.html" class="nav-link" data-i18n="rooms">Chambres</a></li>
+          <li><a href="news.html" class="nav-link" data-i18n="news">News</a></li>
+          <li><a href="about.html" class="nav-link active" data-i18n="about">About</a></li>
+          <li><a href="contact.html" class="nav-link" data-i18n="contact">Contact</a></li>
+        </ul>
+      </nav>
+      <div class="nav-actions">
+        <!-- Bouton Sélecteur de Langue FR / EN -->
+        <div class="lang-switch-wrap">
+          <button type="button" class="lang-btn active" data-lang="fr">FR</button>
+          <button type="button" class="lang-btn" data-lang="en">EN</button>
+        </div>
+
+        <a href="signin.html" class="btn-signin" data-i18n="signin">Sign In</a>
+        <button class="btn-mobile-toggle" aria-label="Menu Mobile">
+          <i class="fa-solid fa-bars"></i>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Category ribbon -->
+  <div class="booking-category-bar">
+    <div class="container">
+      <div class="category-scroll">
+        <a href="booking.html" class="category-pill active"><i class="fa-solid fa-bed"></i> <span data-i18n="ribbon_accommodations">Hébergements</span></a>
+        <a href="about.html#histoire" class="category-pill"><i class="fa-solid fa-landmark"></i> Notre Histoire</a>
+        <a href="about.html#spa" class="category-pill"><i class="fa-solid fa-spa"></i> Espace Bien-être</a>
+        <a href="about.html#restaurant" class="category-pill"><i class="fa-solid fa-utensils"></i> Gastronomie</a>
+      </div>
+    </div>
+  </div>
+
+  <section class="about-hero">
+    <div class="container" style="text-align: center;">
+      <span class="section-subtitle">Excellence & Tradition</span>
+      <h1 style="font-family: var(--font-serif); font-size: 3rem; margin-bottom: 16px;">À Propos de Yankers Royal</h1>
+      <p style="color: var(--color-text-muted); max-width: 650px; margin: 0 auto; font-size: 1.05rem;">
+        Une adresse d'exception où le raffinement architectural rencontre l'art noble de l'hospitalité.
+      </p>
+    </div>
+  </section>
+
+  <main class="container">
+    <section class="about-story-grid" id="histoire">
+      <div>
+        <span class="section-subtitle">Notre Histoire</span>
+        <h2 style="font-family: var(--font-serif); font-size: 2.2rem; margin-bottom: 20px;">L'expérience du luxe authentique</h2>
+        <p style="color: var(--color-text-muted); margin-bottom: 16px; line-height: 1.8;">
+          Conçu pour répondre aux exigences des voyageurs du monde entier, <strong>Yankers Royal Hotel</strong> s'impose comme une référence incontournable du séjour d'affaires et de détente prestigieuse.
+        </p>
+        <p style="color: var(--color-text-muted); margin-bottom: 24px; line-height: 1.8;">
+          Chaque détail de notre établissement, de nos suites spacieuses à nos restaurants gastronomiques en passant par notre complexe aquatique et spa, incarne une harmonie parfaite entre modernité et prestige intemporel.
+        </p>
+        <a href="booking.html" class="btn-signin" style="display: inline-block;">Réserver votre séjour</a>
+      </div>
+      <div class="about-img-frame">
+        <img src="assets/img/hero-resort-new.jpg" alt="Complexe Yankers Royal">
+      </div>
+    </section>
+
+    <!-- Stats -->
+    <div class="stats-row">
+      <div>
+        <div class="stat-number">120+</div>
+        <div class="stat-title">Suites & Chambres Royales</div>
+      </div>
+      <div>
+        <div class="stat-number">5</div>
+        <div class="stat-title">Étoiles & Standards Mondiaux</div>
+      </div>
+      <div>
+        <div class="stat-number">98%</div>
+        <div class="stat-title">Clients Entièrement Satisfaits</div>
+      </div>
+      <div>
+        <div class="stat-number">24/7</div>
+        <div class="stat-title">Conciergerie Dédiée</div>
+      </div>
+    </div>
+  </main>
+
+  <div style="height: 60px;"></div>
+
+  <!-- Footer Standardisé -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-top">
+        <div class="footer-brand">
+          <img src="assets/logo/logo_transparent.png" alt="Yankers Royal Hotel">
+          <p data-i18n="footer_desc">
+            Yankers Royal Hotel combine le raffinement intemporel et les standards internationaux de réservation pour un séjour d'exception.
+          </p>
+          <div class="footer-contacts-list">
+            <span><i class="fa-solid fa-location-dot"></i> Boulevard Principal, Kinshasa, RDC</span>
+            <span><i class="fa-solid fa-phone"></i> +243 81 000 0000</span>
+            <span><i class="fa-solid fa-envelope"></i> contact@yankersroyalhotel.com</span>
+          </div>
+        </div>
+
+        <div class="footer-col">
+          <h3 data-i18n="footer_nav">Navigation</h3>
+          <ul class="footer-links">
+            <li><a href="index.html"><i class="fa-solid fa-chevron-right"></i> <span data-i18n="home">Accueil</span></a></li>
+            <li><a href="booking.html"><i class="fa-solid fa-chevron-right"></i> <span data-i18n="booking">Réservations</span></a></li>
+            <li><a href="chambres.html"><i class="fa-solid fa-chevron-right"></i> <span data-i18n="rooms">Chambres & Suites</span></a></li>
+            <li><a href="news.html"><i class="fa-solid fa-chevron-right"></i> <span data-i18n="news">Actualités</span></a></li>
+            <li><a href="about.html"><i class="fa-solid fa-chevron-right"></i> <span data-i18n="about">À Propos</span></a></li>
+            <li><a href="contact.html"><i class="fa-solid fa-chevron-right"></i> <span data-i18n="contact">Contact</span></a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h3 data-i18n="footer_services">Services & Booking</h3>
+          <ul class="footer-links">
+            <li><a href="booking.html?filter=suite"><i class="fa-solid fa-chevron-right"></i> Réservation Express</a></li>
+            <li><a href="chambres.html#tarifs"><i class="fa-solid fa-chevron-right"></i> Tarifs & Formules</a></li>
+            <li><a href="booking.html?type=vols"><i class="fa-solid fa-chevron-right"></i> Navette Aéroport VIP</a></li>
+            <li><a href="about.html#spa"><i class="fa-solid fa-chevron-right"></i> Espace Bien-Être & Spa</a></li>
+            <li><a href="about.html#restaurant"><i class="fa-solid fa-chevron-right"></i> Restaurant Gastronomique</a></li>
+            <li><a href="contact.html#evenements"><i class="fa-solid fa-chevron-right"></i> Conférences & Mariages</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h3 data-i18n="footer_legal">Assistance & Légal</h3>
+          <ul class="footer-links">
+            <li><a href="signin.html"><i class="fa-solid fa-chevron-right"></i> Espace Client / Sign In</a></li>
+            <li><a href="contact.html#faq"><i class="fa-solid fa-chevron-right"></i> Foire aux Questions (FAQ)</a></li>
+            <li><a href="contact.html#conditions"><i class="fa-solid fa-chevron-right"></i> Conditions Générales</a></li>
+            <li><a href="contact.html#politique"><i class="fa-solid fa-chevron-right"></i> Politique de Confidentialité</a></li>
+            <li><a href="contact.html#support"><i class="fa-solid fa-chevron-right"></i> Conciergerie Dédiée 24/7</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p data-i18n="footer_copy">&copy; 2026 Yankers Royal Hotel. Tous droits réservés.</p>
+        <div class="footer-social-row">
+          <a href="#" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+          <a href="#" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+          <a href="#" aria-label="Twitter"><i class="fa-brands fa-x-twitter"></i></a>
+          <a href="#" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="assets/js/main.js"></script>
+</body>
+</html>

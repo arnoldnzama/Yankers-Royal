@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact & Accès - Yankers Royal Hotel</title>
+  <link rel="icon" type="image/x-icon" href="assets/ico/favicon.ico">
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="stylesheet" href="assets/css/style.css">
+  
+  <style>
+    .contact-hero {
+      background: #FFFFFF;
+      padding: 140px 0 50px;
+      text-align: center;
+      border-bottom: 1px solid var(--color-border);
+    }
+    .contact-layout {
+      display: grid;
+      grid-template-columns: 1fr 1.2fr;
+      gap: 50px;
+      padding: 70px 0 90px;
+    }
+    .contact-info-card {
+      background: var(--color-bg-alt);
+      border-radius: var(--radius-md);
+      padding: 36px;
+      border: 1px solid var(--color-border);
+    }
+    .contact-channel {
+      display: flex;
+      align-items: flex-start;
+      gap: 16px;
+      margin-bottom: 24px;
+    }
+    .channel-icon {
+      width: 44px;
+      height: 44px;
+      background: rgba(197, 154, 39, 0.15);
+      color: var(--color-primary-dark);
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.15rem;
+      flex-shrink: 0;
+    }
+    .contact-form {
+      background: #FFFFFF;
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-md);
+      padding: 36px;
+      box-shadow: var(--shadow-sm);
+    }
+    .form-group {
+      margin-bottom: 20px;
+    }
+    .form-group label {
+      display: block;
+      font-size: 0.85rem;
+      font-weight: 700;
+      color: var(--color-text-main);
+      margin-bottom: 8px;
+    }
+    .form-group input, .form-group textarea, .form-group select {
+      width: 100%;
+      padding: 12px 16px;
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-sm);
+      font-size: 0.95rem;
+      outline: none;
+      transition: var(--transition-smooth);
+    }
+    .form-group input:focus, .form-group textarea:focus {
+      border-color: var(--color-primary);
+    }
+    .btn-send {
+      background: var(--color-primary);
+      color: #FFFFFF;
+      border: none;
+      padding: 14px 32px;
+      border-radius: var(--radius-sm);
+      font-weight: 700;
+      cursor: pointer;
+      transition: var(--transition-smooth);
+      width: 100%;
+    }
+    .btn-send:hover {
+      background: var(--color-primary-dark);
+      box-shadow: 0 4px 14px var(--color-primary-glow);
+    }
+    @media (max-width: 900px) {
+      .contact-layout { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Header -->
+  <header class="site-header">
+    <div class="nav-container">
+      <a href="index.html" class="nav-brand">
+        <img src="assets/logo/logo_transparent.png" alt="Yankers Royal Hotel">
+        <div class="brand-text">
+          <span class="brand-name">Yankers Royal</span>
+          <span class="brand-tag">HOTEL & RESORT</span>
+        </div>
+      </a>
+      <nav>
+        <ul class="nav-menu">
+          <li><a href="index.html" class="nav-link" data-i18n="home">Home</a></li>
+          <li><a href="booking.html" class="nav-link" data-i18n="booking">Booking</a></li>
+          <li><a href="chambres.html" class="nav-link" data-i18n="rooms">Chambres</a></li>
+          <li><a href="news.html" class="nav-link" data-i18n="news">News</a></li>
+          <li><a href="about.html" class="nav-link" data-i18n="about">About</a></li>
+          <li><a href="contact.html" class="nav-link active" data-i18n="contact">Contact</a></li>
+        </ul>
+      </nav>
+      <div class="nav-actions">
+        <!-- Bouton Sélecteur de Langue FR / EN -->
+        <div class="lang-switch-wrap">
+          <button type="button" class="lang-btn active" data-lang="fr">FR</button>
+          <button type="button" class="lang-btn" data-lang="en">EN</button>
+        </div>
+
+        <a href="signin.html" class="btn-signin" data-i18n="signin">Sign In</a>
+        <button class="btn-mobile-toggle" aria-label="Menu Mobile">
+          <i class="fa-solid fa-bars"></i>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <section class="contact-hero">
+    <div class="container">
+      <span class="section-subtitle">À Votre Écoute 24/7</span>
+      <h1 style="font-family: var(--font-serif); font-size: 2.8rem; margin-bottom: 12px;">Contactez Yankers Royal</h1>
+      <p style="color: var(--color-text-muted); max-width: 600px; margin: 0 auto;">
+        Nos équipes de conciergerie et de réception sont à votre entière disposition pour préparer votre arrivée.
+      </p>
+    </div>
+  </section>
+
+  <main class="container">
+    <div class="contact-layout">
+      <!-- Info Left -->
+      <div class="contact-info-card">
+        <h3 style="font-family: var(--font-serif); font-size: 1.5rem; margin-bottom: 24px;">Coordonnées Officielles</h3>
+        
+        <div class="contact-channel">
+          <div class="channel-icon"><i class="fa-solid fa-location-dot"></i></div>
+          <div>
+            <h4 style="font-size: 1rem; font-weight: 700; margin-bottom: 4px;">Adresse</h4>
+            <p style="color: var(--color-text-muted); font-size: 0.9rem;">Boulevard Principal, Kinshasa, République Démocratique du Congo</p>
+          </div>
+        </div>
+
+        <div class="contact-channel">
+          <div class="channel-icon"><i class="fa-solid fa-phone"></i></div>
+          <div>
+            <h4 style="font-size: 1rem; font-weight: 700; margin-bottom: 4px;">Téléphone direct</h4>
+            <p style="color: var(--color-text-muted); font-size: 0.9rem;">+243 81 000 0000 / +243 82 000 0000</p>
+          </div>
+        </div>
+
+        <div class="contact-channel">
+          <div class="channel-icon"><i class="fa-solid fa-envelope"></i></div>
+          <div>
+            <h4 style="font-size: 1rem; font-weight: 700; margin-bottom: 4px;">Email Conciergerie</h4>
+            <p style="color: var(--color-text-muted); font-size: 0.9rem;">concierge@yankersroyalhotel.com</p>
+          </div>
+        </div>
+
+        <div class="contact-channel">
+          <div class="channel-icon"><i class="fa-solid fa-clock"></i></div>
+          <div>
+            <h4 style="font-size: 1rem; font-weight: 700; margin-bottom: 4px;">Heures d'Ouverture</h4>
+            <p style="color: var(--color-text-muted); font-size: 0.9rem;">Réception & Check-in : 24h/24, 7j/7</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Form Right -->
+      <form class="contact-form" onsubmit="event.preventDefault(); alert('Merci pour votre message ! Notre conciergerie vous répondra dans les plus brefs délais.');">
+        <h3 style="font-family: var(--font-serif); font-size: 1.5rem; margin-bottom: 24px;">Envoyer un Message</h3>
+        <div class="form-group">
+          <label>Nom Complet</label>
+          <input type="text" placeholder="Ex: Jean Dupont" required>
+        </div>
+        <div class="form-group">
+          <label>Adresse E-mail</label>
+          <input type="email" placeholder="Ex: jean.dupont@email.com" required>
+        </div>
+        <div class="form-group">
+          <label>Objet de votre demande</label>
+          <select>
+            <option>Réservation de chambre ou suite</option>
+            <option>Événement, Mariage ou Séminaire</option>
+            <option>Demande d'information générale</option>
+            <option>Service conciergerie VIP</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label>Votre Message</label>
+          <textarea rows="5" placeholder="Détaillez vos souhaits et dates..." required></textarea>
+        </div>
+        <button type="submit" class="btn-send">Envoyer la demande</button>
+      </form>
+    </div>
+  </main>
+
+  <!-- Footer Standardisé -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-top">
+        <div class="footer-brand">
+          <img src="assets/logo/logo_transparent.png" alt="Yankers Royal Hotel">
+          <p data-i18n="footer_desc">
+            Yankers Royal Hotel combine le raffinement intemporel et les standards internationaux de réservation pour un séjour d'exception.
+          </p>
+          <div class="footer-contacts-list">
+            <span><i class="fa-solid fa-location-dot"></i> Boulevard Principal, Kinshasa, RDC</span>
+            <span><i class="fa-solid fa-phone"></i> +243 81 000 0000</span>
+            <span><i class="fa-solid fa-envelope"></i> contact@yankersroyalhotel.com</span>
+          </div>
+        </div>
+
+        <div class="footer-col">
+          <h3 data-i18n="footer_nav">Navigation</h3>
+          <ul class="footer-links">
+            <li><a href="index.html"><i class="fa-solid fa-chevron-right"></i> <span data-i18n="home">Accueil</span></a></li>
+            <li><a href="booking.html"><i class="fa-solid fa-chevron-right"></i> <span data-i18n="booking">Réservations</span></a></li>
+            <li><a href="chambres.html"><i class="fa-solid fa-chevron-right"></i> <span data-i18n="rooms">Chambres & Suites</span></a></li>
+            <li><a href="news.html"><i class="fa-solid fa-chevron-right"></i> <span data-i18n="news">Actualités</span></a></li>
+            <li><a href="about.html"><i class="fa-solid fa-chevron-right"></i> <span data-i18n="about">À Propos</span></a></li>
+            <li><a href="contact.html"><i class="fa-solid fa-chevron-right"></i> <span data-i18n="contact">Contact</span></a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h3 data-i18n="footer_services">Services & Booking</h3>
+          <ul class="footer-links">
+            <li><a href="booking.html?filter=suite"><i class="fa-solid fa-chevron-right"></i> Réservation Express</a></li>
+            <li><a href="chambres.html#tarifs"><i class="fa-solid fa-chevron-right"></i> Tarifs & Formules</a></li>
+            <li><a href="booking.html?type=vols"><i class="fa-solid fa-chevron-right"></i> Navette Aéroport VIP</a></li>
+            <li><a href="about.html#spa"><i class="fa-solid fa-chevron-right"></i> Espace Bien-Être & Spa</a></li>
+            <li><a href="about.html#restaurant"><i class="fa-solid fa-chevron-right"></i> Restaurant Gastronomique</a></li>
+            <li><a href="contact.html#evenements"><i class="fa-solid fa-chevron-right"></i> Conférences & Mariages</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h3 data-i18n="footer_legal">Assistance & Légal</h3>
+          <ul class="footer-links">
+            <li><a href="signin.html"><i class="fa-solid fa-chevron-right"></i> Espace Client / Sign In</a></li>
+            <li><a href="contact.html#faq"><i class="fa-solid fa-chevron-right"></i> Foire aux Questions (FAQ)</a></li>
+            <li><a href="contact.html#conditions"><i class="fa-solid fa-chevron-right"></i> Conditions Générales</a></li>
+            <li><a href="contact.html#politique"><i class="fa-solid fa-chevron-right"></i> Politique de Confidentialité</a></li>
+            <li><a href="contact.html#support"><i class="fa-solid fa-chevron-right"></i> Conciergerie Dédiée 24/7</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p data-i18n="footer_copy">&copy; 2026 Yankers Royal Hotel. Tous droits réservés.</p>
+        <div class="footer-social-row">
+          <a href="#" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+          <a href="#" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+          <a href="#" aria-label="Twitter"><i class="fa-brands fa-x-twitter"></i></a>
+          <a href="#" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="assets/js/main.js"></script>
+</body>
+</html>
